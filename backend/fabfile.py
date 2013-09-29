@@ -56,3 +56,20 @@ def deploy():
   with cd(appfolder):
     run('supervisorctl maintail')
 
+
+
+def installnode():
+  nodeurl = 'http://nodejs.org/dist/v0.10.16/node-v0.10.16-linux-x64.tar.gz'
+  nodezip = 'node-v0.10.16-linux-x64.tar.gz'
+  nodefolder = 'node-v0.10.16-linux-x64'
+
+  with settings(warn_only=True):
+    run('mkdir node')
+  with cd('node'):
+    run('wget -N --no-parent %s' % nodeurl)
+    run('tar xzvf %s -C ~/bin/' % nodezip)
+  with cd('bin'):
+    run('ln -fs %s/bin/node node' % nodefolder)
+    run('ln -fs %s/bin/npm npm' % nodefolder)
+    run('npm install -g forever')
+    run('npm install -g node-gyp')
