@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <title>ScrollView Example</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <style>
+            /* Avoid resource latency for these, since they hide unenhanced content */
+            .yui3-js-enabled .yui3-scrollview-loading {
+                visibility:hidden;
+            }
+
+            #additional-content {
+                display:none;
+            }
+        </style>
+
+        <link rel="stylesheet" href="http://yui.yahooapis.com/3.12.0/build/cssreset/cssreset-min.css" type="text/css" charset="utf-8">
+
+        <link rel="stylesheet" href="/assets/scrollview/horizontal.css" type="text/css" charset="utf-8">
+        <link media="handheld, only screen and (max-device-width: 480px)" href="/assets/scrollview/horizontal-smallscreen.css" type="text/css" rel="stylesheet" charset="utf-8">
+
+        <script src="http://yui.yahooapis.com/3.12.0/build/yui/yui-min.js"></script>    
+    </head>
+
+    <body class="yui3-skin-sam">
+        <div id="scrollview-container">
+<!-- 
+    <div id="scrollview-header">
+        <h1>Horizontal ScrollView</h1>
+    </div>
+ -->
+    <!-- 
+
+    [
+  "http://farm7.staticflickr.com/6164/6245876581_7db0d9a30e.jpg",
+  "http://farm7.staticflickr.com/6095/6245904145_463da11ef8.jpg",
+  "http://farm7.staticflickr.com/6163/6245954433_3228e748d4.jpg",
+  "http://farm7.staticflickr.com/6100/6246479090_09f3577081.jpg",
+  "http://farm7.staticflickr.com/6165/6245958185_658d18a3cb.jpg",
+  "http://farm7.staticflickr.com/6105/6245938297_faab1fe857.jpg",
+  "http://farm7.staticflickr.com/6227/6245939029_d564f0d908.jpg",
+  "http://farm7.staticflickr.com/6052/6245906261_5ab43fcbf6.jpg",
+  "http://farm7.staticflickr.com/6164/6246383386_235c50b96c.jpg",
+  "http://farm7.staticflickr.com/6225/6249245508_25daf00a48.jpg"
+]
+ -->
+    <div id="scrollview-content" class="yui3-scrollview-loading">
+        <ul>
+            <li><img src="http://farm7.staticflickr.com/6164/6245876581_7db0d9a30e.jpg" alt="Above The City II"></li>
+            <li><img src="http://farm7.staticflickr.com/6095/6245904145_463da11ef8.jpg" alt="Walls and Canyon"></li>
+            <li><img src="http://farm7.staticflickr.com/6163/6245954433_3228e748d4.jpg" alt="Stairs Using In Situ Stone"></li>
+            <li><img src="http://farm7.staticflickr.com/6164/6245876581_7db0d9a30e.jpg" alt="Above The City II"></li>
+            <li><img src="http://farm7.staticflickr.com/6095/6245904145_463da11ef8.jpg" alt="Walls and Canyon"></li>
+            <li><img src="http://farm7.staticflickr.com/6163/6245954433_3228e748d4.jpg" alt="Stairs Using In Situ Stone"></li>
+            <li><img src="http://farm7.staticflickr.com/6164/6245876581_7db0d9a30e.jpg" alt="Above The City II"></li>
+            <li><img src="http://farm7.staticflickr.com/6095/6245904145_463da11ef8.jpg" alt="Walls and Canyon"></li>
+            <li><img src="http://farm7.staticflickr.com/6163/6245954433_3228e748d4.jpg" alt="Stairs Using In Situ Stone"></li>
+        </ul>
+    </div>
+</div>
+
+<div id="additional-content">
+    <p>testing...</p>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+
+YUI().use('scrollview', function(Y) {
+
+    var scrollView = new Y.ScrollView({
+        id: 'scrollview',
+        srcNode: '#scrollview-content',
+        width: window.innerWidth-21,
+        flick: {
+            minDistance:10,
+            minVelocity:0.3,
+            axis: "x"
+        }
+    });
+
+    scrollView.render();
+
+    // Prevent default image drag behavior
+    scrollView.get("contentBox").delegate("mousedown", function(e) {
+        e.preventDefault();
+    }, "img");
+    
+});
+</script>
+
+
+
+    </body>
+</html>

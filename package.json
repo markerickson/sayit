@@ -1,0 +1,22 @@
+{
+  "name": "sayit",
+  "version": "0.0.0",
+  "description": "augmented communication",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/markerickson/sayit.git"
+  },
+  "keywords": [
+    "augmentation",
+    "parkinsons",
+    "contextual"
+  ],
+  "author": "mark erickson",
+  "license": "BSD",
+  "gitHead": "ab997a392a9b726533ef2a86859c8fae8a76e5cc",
+  "readmeFilename": "README.md"
+}
