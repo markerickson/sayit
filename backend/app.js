@@ -68,23 +68,18 @@ app.get('^/context$', function(req, res) {
 
   if (req.query.lat && req.query.long) {
     new yql.exec("select * from flickr.photos.search where text=\"*\" and api_key=@api_key and lat=@lat and lon=@lon", function(response) {
-      var imageIds = [];
+      var images = [];
       var results = response.query.results;
 
-      /*
-       *if (results.photo) {
-       *  for (var img in results.photo) {
-       *    console.log("Photo id: " + img.title);
-       *  }
-       *} else {
-       *  res.json({ 'error': 'You did not pass a lat/long.' });
-       *}
-       */
+      console.log("Results: " + JSON.stringify(response.query.results));
+      //console.log("Image Ids: " + images);
 
-      console.log(response.query.results);
-      console.log(imageIds);
+      response.query.results.photo.forEach(function (item) {
+        var url = 'http://farm' + item.farm + '.staticflickr.com/' + item.server + '/' + item.id + '_' + item.secret + '.jpg'; 
+        images.push(url);
+      });
 
-      res.json(response.query.results);
+      res.json(images);
     }, { "api_key": api.flickrApiKey, "lat": req.query.lat, "lon": req.query.long });
   } else {
     res.json({});
