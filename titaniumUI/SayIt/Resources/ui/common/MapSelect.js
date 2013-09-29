@@ -55,18 +55,11 @@ function MapSelect() {
 	
 	win.add(doneButton);*/
 	
-	var self = Ti.UI.createView();
-	
-	var lbl = Ti.UI.createLabel({
-		text:'',
-		height:'auto',
-		width:'auto',
-		backgroundImage : 'mapbackground.png'
+	var self = Ti.UI.createImageView({
+  		image:'mapbackground.png'
 	});
 	
-	self.add(lbl);
-	
-	self.setBackgroundImage ('mapbackground.png');
+	//self.setBackgroundImage ('mapbackground.png');
 	win.open();
 	
 	

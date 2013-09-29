@@ -64,7 +64,7 @@ function MasterView() {
 	var whenTab = Titanium.UI.createTab({
 		title : 'when',
 		width: '25%',
-		icon : 'appicon.png',
+		icon : 'whenicon.png',
 		window : dateContainerWindow
 	});
 	tabGroup.addTab(whenTab);
@@ -72,7 +72,7 @@ function MasterView() {
 	var whereTab = Titanium.UI.createTab({
 		title : 'where',
 		width: '25%',
-		icon : 'appicon.png',
+		icon : 'whereicon.png',
 		window : mapContainerWindow
 	});
 	tabGroup.addTab(whereTab);
@@ -80,7 +80,7 @@ function MasterView() {
 	var whatTab = Titanium.UI.createTab({
 		title : 'what',
 		width: '25%',
-		icon : 'appicon.png',
+		icon : 'whaticon.png',
 		window : flickrContainerWindow
 	});
 	tabGroup.addTab(whatTab);
@@ -88,7 +88,7 @@ function MasterView() {
 	var whoTab = Titanium.UI.createTab({
 		title : 'who',
 		width: '25%',
-		icon : 'appicon.png',
+		icon : 'whoicon.png',
 		window : contactContainerWindow
 	});
 	tabGroup.addTab(whoTab);
