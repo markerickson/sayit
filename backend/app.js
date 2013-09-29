@@ -59,6 +59,10 @@ app.get('^/location$', function(req, res) {
 });
 
 
+app.get('^/:lat/:long$', function(req, res, lat, long) {
+  // GET images from YQL for lat/long and return JSON response 
+});
+
 app.get('^/context$', function(req, res) {
 
   new yql.exec("SELECT * FROM weather.forecast WHERE (location = @zip)", function(response) {
@@ -69,7 +73,7 @@ app.get('^/context$', function(req, res) {
 
       var resultsSet = {};
 
-      resultsSet.push = {
+      resultsSet = {
         'city': location.city,
         'region': location.region
       };
