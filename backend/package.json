@@ -1,0 +1,28 @@
+{
+  "name": "Context",
+  "version": "0.0.0",
+  "description": "Determines context for a particular location",
+  "main": "app.js",
+  "dependencies": {
+    "jade": "~0.35.0",
+    "winston": "~0.7.2",
+    "express": "~3.4.0",
+    "yql": "~0.4.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shaond/context"
+  },
+  "keywords": [
+    "yql"
+  ],
+  "author": "Shaon Diwakar",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/shaond/context/issues"
+  }
+}
