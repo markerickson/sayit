@@ -55,16 +55,7 @@ app.get('^/$', function(req, res) {
   res.send(200, "Hello");
 });
 
-app.get('^/location$', function(req, res) {
- res.render(__dirname + '/views/location'); 
-});
-
-
-app.get('^/:lat/:long$', function(req, res, lat, long) {
-  // GET images from YQL for lat/long and return JSON response 
-});
-
-app.get('^/context$', function(req, res) {
+app.get('^/where', function(req, res) {
 
   if (req.query.lat && req.query.long) {
     new yql.exec("select * from flickr.photos.search where text=\"*\" and api_key=@api_key and lat=@lat and lon=@lon", function(response) {
