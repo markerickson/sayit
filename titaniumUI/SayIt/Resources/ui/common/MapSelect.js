@@ -1,26 +1,11 @@
 function MapSelect() {
 	var win = Ti.UI.createWindow({
 		exitOnClose : true,
-		layout : 'vertical'
-	});
-	
-	 var mapview = Titanium.Map.createView({
-	 mapType : Titanium.Map.STANDARD_TYPE,
-	 region : {
-	 latitude : 33.74511,
-	 longitude : -84.38993,
-	 latitudeDelta : 0.01,
-	 longitudeDelta : 0.01
-	 },
-	 animate : true,
-	 regionFit : true,
-	 userLocation : false,
-	 annotations : ['mountainView']
-	 });
-	 /*
-	var MapModule = require('ti.map');
-	var mapview = MapModule.createView({
-		mapType : MapModule.NORMAL_TYPE,
+		layout : 'vertical',
+		backgroundImage : 'mapbackground.png'
+	});/*
+	var mapview = Titanium.Map.createView({
+		mapType : Titanium.Map.STANDARD_TYPE,
 		region : {
 			latitude : 33.74511,
 			longitude : -84.38993,
@@ -30,6 +15,7 @@ function MapSelect() {
 		animate : true,
 		regionFit : true,
 		userLocation : false,
+		backgroundImage : 'mapbackground.png',
 		annotations : ['mountainView']
 	});
 
@@ -45,9 +31,7 @@ function MapSelect() {
 			Ti.API.info("Annotation " + evt.title + ", left button clicked.");
 		}
 	});*/
-
-win.add(mapview);
-
+/*
 	var doneButton = Ti.UI.createButton({
 		bottom : 10,
 		width : 300,
@@ -68,12 +52,25 @@ win.add(mapview);
 	doneButton.addEventListener("click", function(e) {
 		win.close();
 	});
-
-	win.add(doneButton);
-
+	
+	win.add(doneButton);*/
+	
+	var self = Ti.UI.createView();
+	
+	var lbl = Ti.UI.createLabel({
+		text:'',
+		height:'auto',
+		width:'auto',
+		backgroundImage : 'mapbackground.png'
+	});
+	
+	self.add(lbl);
+	
+	self.setBackgroundImage ('mapbackground.png');
 	win.open();
-
-	return mapview;
+	
+	
+	return self;
 }
 
 module.exports = MapSelect;

@@ -30,14 +30,14 @@ function MasterView() {
 		backgroundColor : '#ffffff',
 		borderRadius : 10,
 		top : 10,
-		height : 2000,
+		height : 500,
 		width : '90%'
 	});
 
 	/////////////////////////////////////////////////////////////////////////////
 	// Inside logic of the selectionView
 	var dateView = new DateView(),
-		//mapView = new MapView(),
+		mapView = new MapView(),
 		flickrView = new FlickrView(),
 		contactView = new ContactView();
 		
@@ -45,12 +45,12 @@ function MasterView() {
 		//title:'Choose when'
 	});
 	dateContainerWindow.add(dateView);
-	/*
+	
 	var mapContainerWindow = Ti.UI.createWindow({
 		//title:'Choose where'
 	});
 	mapContainerWindow.add(mapView);
-	*/
+	
 	var flickrContainerWindow = Ti.UI.createWindow({
 		//title:'Choose when'
 	});
@@ -68,7 +68,7 @@ function MasterView() {
 		window : dateContainerWindow
 	});
 	tabGroup.addTab(whenTab);
-	/*
+	
 	var whereTab = Titanium.UI.createTab({
 		title : 'where',
 		width: '25%',
@@ -76,7 +76,7 @@ function MasterView() {
 		window : mapContainerWindow
 	});
 	tabGroup.addTab(whereTab);
-	*/
+	
 	var whatTab = Titanium.UI.createTab({
 		title : 'what',
 		width: '25%',
