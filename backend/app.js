@@ -59,17 +59,30 @@ app.get('^/location$', function(req, res) {
 });
 
 
-app.post('^/getcontext$', function(req, res) {
+app.get('^/context$', function(req, res) {
 
   new yql.exec("SELECT * FROM weather.forecast WHERE (location = @zip)", function(response) {
       var location = response.query.results.channel.location;
       var condition = response.query.results.channel.item.condition;
 
       console.log("The current weather in " + location.city + ', ' + location.region + " is " + condition.temp + " degrees and " + condition.text);
-    }, { "zip": 90066 });
 
-  res.send(200, 'Getting context');
+      var resultsSet = {};
+
+      resultsSet.push = {
+        'city': location.city,
+        'region': location.region
+      };
+
+      // Return the response 
+      res.json(resultsSet);
+
+  }, { "zip": 90066 });
+
 });
+
+
+
 
 // Main loop
 http.createServer(app).listen(app.get('port'), function() {
