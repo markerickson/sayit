@@ -71,15 +71,15 @@ app.get('^/context$', function(req, res) {
       var images = [];
       var results = response.query.results;
 
-      console.log("Results: " + JSON.stringify(response.query.results));
-      //console.log("Image Ids: " + images);
-
-      response.query.results.photo.forEach(function (item) {
-        var url = 'http://farm' + item.farm + '.staticflickr.com/' + item.server + '/' + item.id + '_' + item.secret + '.jpg'; 
-        images.push(url);
-      });
+      if (response.query.results !== null) {
+        response.query.results.photo.forEach(function (item) {
+          var url = 'http://farm' + item.farm + '.staticflickr.com/' + item.server + '/' + item.id + '_' + item.secret + '.jpg'; 
+          images.push(url);
+        });
+      }
 
       res.json(images);
+
     }, { "api_key": api.flickrApiKey, "lat": req.query.lat, "lon": req.query.long });
   } else {
     res.json({});
