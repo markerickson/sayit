@@ -66,36 +66,12 @@ app.get('^/:lat/:long$', function(req, res, lat, long) {
 
 app.get('^/context$', function(req, res) {
 
-/*
- *  new yql.exec("SELECT * FROM weather.forecast WHERE (location = @zip)", function(response) {
- *      var location = response.query.results.channel.location;
- *      var condition = response.query.results.channel.item.condition;
- *
- *      console.log("The current weather in " + location.city + ', ' + location.region + " is " + condition.temp + " degrees and " + condition.text);
- *
- *      var resultsSet = {};
- *
- *      resultsSet = {
- *        'city': location.city,
- *        'region': location.region
- *      };
- *
- *      // Return the response 
- *      res.json(resultsSet);
- *
- *  }, { "zip": 90066 });
- */
-
   new yql.exec("select * from flickr.photos.search where text=\"*\" and api_key=@api_key and lat=@lat and lon=@lon", function(response) {
     // Return just the images for this location
     res.json(response.query.results);
-  }, { "api_key": api.flickrApiKey, "lat": 37, "lon": 121 });
-
+  }, { "api_key": api.flickrApiKey, "lat": req.query.lat, "lon": req.query.long });
 
 });
-
-
-
 
 // Main loop
 http.createServer(app).listen(app.get('port'), function() {
