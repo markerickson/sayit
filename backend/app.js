@@ -59,11 +59,6 @@ app.get('^/location$', function(req, res) {
  res.render(__dirname + '/views/location'); 
 });
 
-
-app.get('^/:lat/:long$', function(req, res, lat, long) {
-  // GET images from YQL for lat/long and return JSON response 
-});
-
 app.get('^/context$', function(req, res) {
 
   if (req.query.lat && req.query.long) {
